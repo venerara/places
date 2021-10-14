@@ -24,7 +24,42 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyFirstfulWidget(),
+    );
+  }
+}
+
+class MyFirstWidget extends StatelessWidget {
+  const MyFirstWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('build');
+    return Container(
+      child: Center(
+        child: Text('Hello!'),
+      ),
+    );
+  }
+}
+
+class MyFirstfulWidget extends StatefulWidget {
+  const MyFirstfulWidget({Key? key}) : super(key: key);
+
+  @override
+  _MyFirstfulWidgetState createState() => _MyFirstfulWidgetState();
+}
+
+class _MyFirstfulWidgetState extends State<MyFirstfulWidget> {
+  int _ccounter = 0;
+  @override
+  Widget build(BuildContext context) {
+    _ccounter++;
+    print('$_ccounter');
+    return Container(
+      child: Center(
+        child: Text('Hello!'),
+      ),
     );
   }
 }
