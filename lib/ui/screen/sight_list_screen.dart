@@ -18,8 +18,44 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Список интересных мест'),
+      // Изменение высоты Appbar
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0, // Убираем тень
+          // Создание заголовка в 2 строки с разноцветными буквами
+          title: RichText(
+            text: TextSpan(
+                text: "С",
+                style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 26),
+                children: [
+                  TextSpan(
+                    text: "писок\n",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextSpan(
+                      text: "и",
+                      style: TextStyle(
+                        color: Colors.yellow,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "нтересных мест",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ]),
+                ]),
+            maxLines: 2,
+          ),
+        ),
       ),
     );
   }
