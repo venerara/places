@@ -6,6 +6,7 @@ import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/Sight_list_screen.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
+import 'package:places/ui/res/appstrings.dart';
 
 void main() {
   runApp(App());

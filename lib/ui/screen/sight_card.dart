@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/appstrings.dart';
+import 'package:places/ui/res/buttons.dart';
+import 'package:places/mocks.dart';
 
 class SightCard extends StatelessWidget {
-  final String name; //название достопримечательности
-  final double lat; //координата места
-  final double lon; //координата места
-  final String url; //путь до фотографии в интернете
-  final String details; //описание достопримечательности
-  final String type; //тип достопримечательности
-
-  SightCard({
-    required this.name,
-    required this.lat,
-    required this.lon,
-    required this.url,
-    required this.details,
-    required this.type,
-  });
+  final Sight sight;
+  const SightCard({
+    Key? key,
+    required this.sight,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,39 +19,40 @@ class SightCard extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              child: Container(
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20))),
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: 10,
-                  left: 10,
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    child: (Text(
-                      type,
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    )),
-                  ),
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
-                Positioned(
-                  top: 10,
-                  right: 10,
-                  child: Container(
-                    width: 30.0,
-                    height: 30.0,
-                    child: Icon(Icons.favorite_border, color: Colors.white),
+              ),
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: Container(
+                      width: 100.0,
+                      height: 100.0,
+                      child: TextWrapper(text: sight.type),
+                    ),
                   ),
-                ),
-              ],
+                  // ),
+                  Positioned(
+                    top: 10,
+                    right: 10,
+                    child: Container(
+                      width: 30.0,
+                      height: 30.0,
+                      child: Icon(Icons.favorite_border, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          )),
+          ),
           Expanded(
             child: Container(
               color: Colors.white70,
@@ -65,15 +60,16 @@ class SightCard extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: RichText(
                 text: TextSpan(
-                  text: (name + '\n'),
+                  text: (sight.name + '\n'),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    fontSize: 18,
                   ),
                   children: [
                     TextSpan(
-                        text: ('\n' + details),
-                        style: TextStyle(color: Colors.grey, fontSize: 12)),
+                      text: ('\n' + sight.details),
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
                   ],
                 ),
               ),
@@ -82,5 +78,15 @@ class SightCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class TextWrapper extends StatelessWidget {
+  final String text;
+  const TextWrapper({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text, style: TextStyle(fontSize: 18, color: Colors.white));
   }
 }
