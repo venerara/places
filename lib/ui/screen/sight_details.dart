@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/appstrings.dart';
+import 'package:places/ui/res/buttons.dart';
 
 class SightDetails extends StatelessWidget {
   const SightDetails({Key? key}) : super(key: key);
@@ -7,7 +9,6 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottonNavigationBar(),
       body: Container(
         padding: EdgeInsets.all(8),
         child: Column(
@@ -35,24 +36,24 @@ class SightDetails extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: RichText(
                         text: TextSpan(
-                          text: 'Пряности и радости\n',
+                          text: placeName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 22,
                           ),
                           children: [
                             TextSpan(
-                              text: 'ресторан',
+                              text: ('\n' + placeType),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 10,
+                                fontSize: 12,
                               ),
                             ),
                             TextSpan(
-                              text: '    закрыто до 09:00',
+                              text: placeMode,
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 9,
+                                fontSize: 12,
                               ),
                             ),
                           ],
@@ -66,7 +67,7 @@ class SightDetails extends StatelessWidget {
                       padding: EdgeInsets.all(8),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Кавказские пряности и европейские радости не оставят вас равнодушными. Приготовленные по традиционным грузинским рецептам аджапсандал, несколько видов  хачапури, харчо, лобио и хинкали соседствуют с главными хитами европейской кухни, авторскими блюдами от шеф-повара и великолепными десертами от нашего шеф-кондитера!',
+                        placeDetails,
                         softWrap: true,
                       ),
                     ),
@@ -76,20 +77,20 @@ class SightDetails extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(8),
                       alignment: Alignment.bottomCenter,
-                      child: TextButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.green),
-                          foregroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
+                      child: RouteButton(),
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: PlanButton(),
                         ),
-                        child: Row(children: [
-                          SizedBox(height: 40, width: 25),
-                          Icon(Icons.directions_bus),
-                          Text("ПОСТРОИТЬ МАРШРУТ"),
-                        ]),
-                      ),
+                        Expanded(
+                          child: FavoriteButton(),
+                        ),
+                      ],
                     ),
                     flex: 1,
                   ),
@@ -100,29 +101,6 @@ class SightDetails extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CustomBottonNavigationBar extends StatelessWidget {
-  const CustomBottonNavigationBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.black87,
-      currentIndex: 1,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.date_range),
-          title: Text('Запланировать'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          title: Text('В избранное'),
-        ),
-      ],
     );
   }
 }
