@@ -15,13 +15,16 @@ class SightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      //SizedBox(
+      //height: 300,
+
       height: 500,
       padding: EdgeInsets.all(8),
       child: Column(
         children: [
           Expanded(
-            // child: AspectRatio(
-            //   aspectRatio: 3 / 2,
+            //child: AspectRatio(
+            // aspectRatio: 3 / 2,
             child: Container(
               padding: const EdgeInsets.only(left: 30.0, top: 20.0),
               decoration: BoxDecoration(
@@ -47,12 +50,13 @@ class SightCard extends StatelessWidget {
                 ],
               ),
             ),
-            // ),
           ),
+          //),
           Expanded(
-            // child: AspectRatio(
-            //    aspectRatio: 3 / 2,
             child: Container(
+              //AspectRatio(
+              //aspectRatio: 3 / 2,
+
               //constraints: BoxConstraints(maxWidth: 250),
               color: Colors.white70,
               padding: EdgeInsets.all(8),
