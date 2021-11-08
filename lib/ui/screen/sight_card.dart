@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/appstrings.dart';
-import 'package:places/ui/res/buttons.dart';
+import 'package:places/ui/screen/components/button_text.dart';
+import 'package:places/ui/screen/components/button_navigationbar.dart';
 import 'package:places/mocks.dart';
 
 class SightCard extends StatelessWidget {
@@ -19,8 +20,10 @@ class SightCard extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
+            // child: AspectRatio(
+            //   aspectRatio: 3 / 2,
             child: Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 30.0, top: 20.0),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
@@ -28,33 +31,29 @@ class SightCard extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: Stack(
-                children: <Widget>[
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: Container(
-                      width: 100.0,
-                      height: 100.0,
-                      child: TextWrapper(text: sight.type),
-                    ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    sight.type,
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                  // ),
-                  Positioned(
-                    top: 10,
-                    right: 10,
-                    child: Container(
-                      width: 30.0,
-                      height: 30.0,
-                      child: Icon(Icons.favorite_border, color: Colors.white),
-                    ),
-                  ),
+                  Spacer(),
+                  ButtonNavigationBar(
+                      icon: Icons.favorite_border,
+                      iconColor: Colors.white,
+                      title: ""),
                 ],
               ),
             ),
+            // ),
           ),
           Expanded(
+            // child: AspectRatio(
+            //    aspectRatio: 3 / 2,
             child: Container(
+              //constraints: BoxConstraints(maxWidth: 250),
               color: Colors.white70,
               padding: EdgeInsets.all(8),
               alignment: Alignment.centerLeft,
@@ -78,15 +77,5 @@ class SightCard extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class TextWrapper extends StatelessWidget {
-  final String text;
-  const TextWrapper({Key? key, required this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text, style: TextStyle(fontSize: 18, color: Colors.white));
   }
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
-import 'package:places/ui/res/buttons.dart';
+import 'package:places/ui/screen/components/button_text.dart';
+import 'package:places/ui/screen/components/button_navigationbar.dart';
+import 'package:places/ui/screen/components/button_list.dart';
 
 class SightDetails extends StatelessWidget {
   const SightDetails({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +18,8 @@ class SightDetails extends StatelessWidget {
             Expanded(
               child: Container(
                 color: Colors.greenAccent,
-                alignment: FractionalOffset(0.1, 0.1),
-                child: Container(
-                  width: 30.0,
-                  height: 30.0,
-                  color: Colors.white,
-                  child: Icon(Icons.arrow_back_ios_new_rounded),
-                ),
+                alignment: FractionalOffset(0.05, 0.05),
+                child: ButtonList(),
               ),
               flex: 1,
             ),
@@ -36,21 +32,21 @@ class SightDetails extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: RichText(
                         text: TextSpan(
-                          text: placeName,
+                          text: AppStrings.placeName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
                           children: [
                             TextSpan(
-                              text: ('\n' + placeType),
+                              text: ('\n' + AppStrings.placeType),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12,
                               ),
                             ),
                             TextSpan(
-                              text: placeMode,
+                              text: AppStrings.placeMode,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12,
@@ -67,7 +63,7 @@ class SightDetails extends StatelessWidget {
                       padding: EdgeInsets.all(8),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        placeDetails,
+                        AppStrings.placeDetails,
                         softWrap: true,
                       ),
                     ),
@@ -85,10 +81,16 @@ class SightDetails extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                          child: PlanButton(),
+                          child: ButtonNavigationBar(
+                              icon: Icons.calendar_today_rounded,
+                              iconColor: Colors.grey,
+                              title: AppStrings.titlePlanbutton),
                         ),
                         Expanded(
-                          child: FavoriteButton(),
+                          child: ButtonNavigationBar(
+                              icon: Icons.favorite_border,
+                              iconColor: Colors.black,
+                              title: AppStrings.titleFavoritebutton),
                         ),
                       ],
                     ),

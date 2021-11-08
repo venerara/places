@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
-import 'package:places/ui/res/buttons.dart';
+import 'package:places/ui/screen/components/appbar_custom.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
@@ -17,16 +17,20 @@ class SightListScreen extends StatefulWidget {
 class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
+    final List<Widget> textfield = mocks
+        .map(
+          (Sight sight) => SightCard(
+            sight: sight,
+          ),
+        )
+        .toList();
+
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(title: AppStrings.titleAppBar, height: 70.0),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              SightCard(sight: Mocks.mocks[0]),
-              SightCard(sight: Mocks.mocks[1]),
-              SightCard(sight: Mocks.mocks[2]),
-            ],
+            children: textfield,
           ),
         ),
       ),
