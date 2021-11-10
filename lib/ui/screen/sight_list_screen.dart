@@ -26,7 +26,7 @@ class _SightListScreenState extends State<SightListScreen> {
         .toList();
 
     return Scaffold(
-      appBar: CustomAppBar(title: AppStrings.titleAppBar, height: 70.0),
+appBar: CustomAppBar(title: AppStrings.titleAppBar, height: 70.0),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -37,3 +37,4 @@ class _SightListScreenState extends State<SightListScreen> {
     );
   }
 }
+

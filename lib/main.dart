@@ -20,7 +20,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo App',
       theme: ThemeData(),
-      home: SightDetails(),
+      home: SightListScreen(),
     );
   }
 }
