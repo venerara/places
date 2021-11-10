@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/appstrings.dart';
+import 'package:places/ui/screen/components/appbar_custom.dart';
+import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/domain/sight.dart';
+import 'package:places/mocks.dart';
 
 class SightListScreen extends StatefulWidget {
-  const SightListScreen({Key? key}) : super(key: key);
+  const SightListScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _SightListScreenState createState() => _SightListScreenState();
 }
 
 class _SightListScreenState extends State<SightListScreen> {
-  int count = 0;
-  void incrementcount() {
-    setState(() {
-      count++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> textfield = mocks
+        .map(
+          (Sight sight) => SightCard(
+            sight: sight,
+          ),
+        )
+        .toList();
+
     return Scaffold(
-      // Изменение  высоты Appbar
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0, // Убираем тень
-          // Создание заголовка Appbar в 2 строки
-          title: const Text(
-            "Список\nинтересных мест",
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
-            maxLines: 2,
+appBar: CustomAppBar(title: AppStrings.titleAppBar, height: 70.0),
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: textfield,
           ),
         ),
       ),
     );
   }
 }
+
