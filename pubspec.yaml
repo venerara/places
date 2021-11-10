@@ -24,6 +24,8 @@ dev_dependencies:
 
 flutter:
 
+  uses-material-design: true
+  
   assets:
     - res/
     
@@ -35,6 +37,6 @@ fonts:
       - asset: fonts/Roboto-Bold.ttf
         weight: 700
 
-uses-material-design: true
+
 
   
