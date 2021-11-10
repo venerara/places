@@ -37,23 +37,33 @@ class _SightListScreenState extends State<SightListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
       // Изменение  высоты Appbar
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0, // Убираем тень
-          // Создание заголовка Appbar в 2 строки
-          title: const Text(
-            "Список\nинтересных мест",
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
-            maxLines: 2,
-          ),
-        ),
-      ),
+      appBar: CustomAppBar(),
     );
   }
 }
 
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  CustomAppBar({Key? key})
+      : preferredSize = Size.fromHeight(70.0),
+        super(key: key);
+
+  @override
+  final Size preferredSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0, // Убираем тень
+      // Создание заголовка Appbar в 2 строки
+      title: const Text(
+        "Список\nинтересных мест",
+        style: TextStyle(
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
+        maxLines: 2,
+      ),
+    );
+  }
+}
