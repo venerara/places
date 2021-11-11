@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/res/appstrings.dart';
 
 /// кнопки Запланировать и  В Избранное
 class ButtonNavigationBar extends StatelessWidget {

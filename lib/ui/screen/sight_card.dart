@@ -1,9 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/res/appstrings.dart';
-import 'package:places/ui/screen/components/button_text.dart';
 import 'package:places/ui/screen/components/button_navigationbar.dart';
-import 'package:places/mocks.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
@@ -15,15 +13,13 @@ class SightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
-      padding: EdgeInsets.all(8),
+      height: 300,
+      padding: EdgeInsets.all(10),
       child: Column(
         children: [
           Expanded(
-            // child: AspectRatio(
-            //   aspectRatio: 3 / 2,
             child: Container(
-              padding: const EdgeInsets.only(left: 30.0, top: 20.0),
+              padding: const EdgeInsets.only(left: 20.0, top: 20.0),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
@@ -37,7 +33,10 @@ class SightCard extends StatelessWidget {
                 children: [
                   Text(
                     sight.type,
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
                   ),
                   Spacer(),
                   ButtonNavigationBar(
@@ -47,27 +46,30 @@ class SightCard extends StatelessWidget {
                 ],
               ),
             ),
-            // ),
           ),
           Expanded(
-            // child: AspectRatio(
-            //    aspectRatio: 3 / 2,
             child: Container(
-              //constraints: BoxConstraints(maxWidth: 250),
-              color: Colors.white70,
-              padding: EdgeInsets.all(8),
-              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+              padding: EdgeInsets.all(20),
+              alignment: Alignment.topCenter,
               child: RichText(
+                overflow: TextOverflow.ellipsis,
                 text: TextSpan(
                   text: (sight.name + '\n'),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 20,
                   ),
                   children: [
                     TextSpan(
-                      text: ('\n' + sight.details),
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                      text: sight.details,
+                      style: TextStyle(color: Colors.grey, fontSize: 14),
                     ),
                   ],
                 ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/res/appstrings.dart';
 
 /// кнопка в виде иконки поверх картинок
 class ButtonList extends StatelessWidget {
