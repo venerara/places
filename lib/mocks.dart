@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 
 final List<Sight> mocks = [

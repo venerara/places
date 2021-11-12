@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/res/appstrings.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -16,6 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       backgroundColor: Colors.white,
       title: Text(
         title,
