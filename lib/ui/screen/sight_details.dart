@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
 import 'package:places/ui/screen/components/button_text.dart';
@@ -11,15 +10,29 @@ class SightDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(10),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: Container(
-                color: Colors.greenAccent,
-                alignment: FractionalOffset(0.05, 0.05),
-                child: ButtonList(),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                    strokeWidth: 0.7,
+                  ),
+                  Container(
+                    alignment: FractionalOffset(0.05, 0.05),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('res/images/cave.png'),
+                      ),
+                    ),
+                    child: ButtonList(),
+                  ),
+                ],
               ),
               flex: 1,
             ),
@@ -28,28 +41,28 @@ class SightDetails extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       child: RichText(
                         text: TextSpan(
                           text: AppStrings.placeName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 22,
+                            fontSize: 20,
                           ),
                           children: [
                             TextSpan(
                               text: ('\n' + AppStrings.placeType),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 12,
+                                fontSize: 14,
                               ),
                             ),
                             TextSpan(
                               text: AppStrings.placeMode,
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 12,
+                                fontSize: 14,
                               ),
                             ),
                           ],
@@ -60,7 +73,7 @@ class SightDetails extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       child: Text(
                         AppStrings.placeDetails,
@@ -71,7 +84,7 @@ class SightDetails extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(10),
                       alignment: Alignment.bottomCenter,
                       child: RouteButton(),
                     ),
