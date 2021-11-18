@@ -25,7 +25,7 @@ class ButtonNavigationBar extends StatelessWidget {
         children: [
           Icon(icon),
           Text(title),
-          SizedBox(width: 30, height: 30),
+          const SizedBox(width: 30, height: 30),
         ],
       ),
     );

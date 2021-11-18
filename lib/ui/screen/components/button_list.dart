@@ -11,14 +11,14 @@ class ButtonList extends StatelessWidget {
       width: 32,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: IconButton(
         padding: EdgeInsets.all(0),
         onPressed: () {},
         iconSize: (22.0),
         color: Colors.black,
-        icon: Icon(Icons.arrow_back_ios_new_rounded),
+        icon: const Icon(Icons.arrow_back_ios_new_rounded),
       ),
     );
   }

@@ -18,7 +18,7 @@ class SightDetails extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  CircularProgressIndicator(
+                  const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                     strokeWidth: 0.7,
                   ),
@@ -30,7 +30,7 @@ class SightDetails extends StatelessWidget {
                         image: AssetImage('res/images/cave.png'),
                       ),
                     ),
-                    child: ButtonList(),
+                    child: const ButtonList(),
                   ),
                 ],
               ),
@@ -44,7 +44,7 @@ class SightDetails extends StatelessWidget {
                       padding: EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: AppStrings.placeName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -93,13 +93,13 @@ class SightDetails extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: <Widget>[
-                        Expanded(
+                        const Expanded(
                           child: ButtonNavigationBar(
                               icon: Icons.calendar_today_rounded,
                               iconColor: Colors.grey,
                               title: AppStrings.titlePlanbutton),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: ButtonNavigationBar(
                               icon: Icons.favorite_border,
                               iconColor: Colors.black,

@@ -53,7 +53,7 @@ class _PlaceImage extends StatelessWidget {
         Container(
           height: 170,
           width: double.infinity,
-          padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 15.0),
+          padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 15.0),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
@@ -77,7 +77,7 @@ class _PlaceImage extends StatelessWidget {
                       fontSize: 18),
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 1,
                 child: Icon(
                   Icons.favorite_border_outlined,
