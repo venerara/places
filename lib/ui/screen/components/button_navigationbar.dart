@@ -6,7 +6,7 @@ class ButtonNavigationBar extends StatelessWidget {
   final Color iconColor;
   final String title;
 
-  ButtonNavigationBar(
+  const ButtonNavigationBar(
       {Key? key,
       required this.title,
       required this.iconColor,
