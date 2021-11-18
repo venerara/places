@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
 import 'package:places/ui/screen/components/button_text.dart';
