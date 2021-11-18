@@ -17,33 +17,47 @@ class SightCard extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Container(
-              padding: const EdgeInsets.only(left: 20.0, top: 20.0),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+                  strokeWidth: 0.8,
                 ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    sight.type,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                Container(
+                  height: 170,
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(sight.url),
+                    ),
                   ),
-                  Spacer(),
-                  ButtonNavigationBar(
-                      icon: Icons.favorite_border,
-                      iconColor: Colors.white,
-                      title: ""),
-                ],
-              ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        sight.type,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      Spacer(),
+                      ButtonNavigationBar(
+                          icon: Icons.favorite_border,
+                          iconColor: Colors.white,
+                          title: ""),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
           Expanded(

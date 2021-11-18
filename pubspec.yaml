@@ -29,7 +29,8 @@ flutter:
   
   assets:
     - res/
-    - res/images/cave.png
+    - res/images/
+
     
 
 fonts:

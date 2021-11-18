@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/Sight_list_screen.dart';
 import 'package:places/ui/screen/sight_details.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
 
 void main() {
   runApp(App());
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo App',
       theme: ThemeData(),
-      home: const SightDetails(),
+      home: const SightListScreen(),
     );
   }
 }
