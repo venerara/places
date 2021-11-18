@@ -29,9 +29,8 @@ flutter:
   
   assets:
     - res/
-    - res/images/waterfall.png
-    - res/images/cave.png
-    - res/images/lake.png
+    - res/images/
+
     
 
 fonts:
