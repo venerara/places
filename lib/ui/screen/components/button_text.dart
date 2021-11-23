@@ -15,10 +15,12 @@ class RouteButton extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
-          SizedBox(height: 50, width: 20),
-          Icon(Icons.directions_bus),
-          Text(AppStrings.titleRoutebutton),
+          const SizedBox(height: 50, width: 20),
+          const Icon(Icons.directions_bus),
+          const SizedBox(width: 5),
+          const Text(AppStrings.titleRoutebutton),
         ],
       ),
     );

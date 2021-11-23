@@ -15,18 +15,20 @@ class ButtonNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {},
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(iconColor),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon),
-          Text(title),
-          SizedBox(width: 30, height: 30),
-        ],
+    return InkWell(
+      child: TextButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(iconColor),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon),
+            const SizedBox(width: 10),
+            Text(title),
+          ],
+        ),
       ),
     );
   }

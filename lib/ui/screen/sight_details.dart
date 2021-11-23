@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
 import 'package:places/ui/screen/components/button_text.dart';
@@ -9,113 +11,103 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-                    strokeWidth: 0.7,
-                  ),
-                  Container(
-                    alignment: FractionalOffset(0.05, 0.05),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('res/images/cave.png'),
-                      ),
-                    ),
-                    child: ButtonList(),
-                  ),
-                ],
-              ),
-              flex: 1,
-            ),
-            Expanded(
+      body: Column(
+        children: [
+          // ignore: prefer_const_constructors
+          Expanded(
+            child: const _PlaceImage(),
+            flex: 1,
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      child: RichText(
-                        text: TextSpan(
-                          text: AppStrings.placeName,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: ('\n' + AppStrings.placeType),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                            ),
-                            TextSpan(
-                              text: AppStrings.placeMode,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
+                  const SizedBox(height: 30),
+                  const Text(
+                    AppStrings.placeName,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      const Text(
+                        AppStrings.placeType,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        AppStrings.placeDetails,
-                        softWrap: true,
+                      const SizedBox(width: 20),
+                      const Text(
+                        AppStrings.placeMode,
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
-                    ),
-                    flex: 1,
+                    ],
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.bottomCenter,
-                      child: RouteButton(),
-                    ),
-                    flex: 1,
+                  const SizedBox(height: 25),
+                  const Text(
+                    AppStrings.placeDetails,
                   ),
-                  Expanded(
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: ButtonNavigationBar(
-                              icon: Icons.calendar_today_rounded,
-                              iconColor: Colors.grey,
-                              title: AppStrings.titlePlanbutton),
-                        ),
-                        Expanded(
-                          child: ButtonNavigationBar(
-                              icon: Icons.favorite_border,
-                              iconColor: Colors.black,
-                              title: AppStrings.titleFavoritebutton),
-                        ),
-                      ],
-                    ),
-                    flex: 1,
-                  ),
+                  const SizedBox(height: 35),
+                  const RouteButton(),
+                  const SizedBox(height: 50),
+                  // ignore: prefer_const_constructors
+                  _BottomNavigationBar(),
                 ],
               ),
-              flex: 1,
             ),
-          ],
-        ),
+            flex: 1,
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class _PlaceImage extends StatelessWidget {
+  const _PlaceImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        const CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+          strokeWidth: 0.7,
+        ),
+        Container(
+          alignment: const FractionalOffset(0.05, 0.05),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('res/images/cave.png'),
+            ),
+          ),
+          child: const ButtonList(),
+        ),
+      ],
+    );
+  }
+}
+
+class _BottomNavigationBar extends StatelessWidget {
+  const _BottomNavigationBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        const ButtonNavigationBar(
+            icon: Icons.calendar_today_rounded,
+            iconColor: Colors.grey,
+            title: AppStrings.titlePlanbutton),
+        const ButtonNavigationBar(
+            icon: Icons.favorite_border,
+            iconColor: Colors.black,
+            title: AppStrings.titleFavoritebutton),
+      ],
     );
   }
 }
