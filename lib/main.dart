@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/sight_list_screen.dart';
+import 'package:places/ui/screen/sight_visiting_screen.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -14,7 +14,20 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo App',
       theme: ThemeData(),
-      home: const SightListScreen(),
+      home: const VisitingScreen(),
     );
+  }
+}
+
+class VisitingScreen extends StatefulWidget {
+  const VisitingScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    // ignore: todo
+    // TODO: implement createState
+    return VisitingScreenState();
   }
 }

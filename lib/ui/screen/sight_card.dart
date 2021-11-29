@@ -12,7 +12,7 @@ class SightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Expanded(
@@ -53,7 +53,7 @@ class _PlaceImage extends StatelessWidget {
         Container(
           height: 170,
           width: double.infinity,
-          padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 15.0),
+          padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 15.0),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
@@ -65,24 +65,19 @@ class _PlaceImage extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 9,
-                child: Text(
-                  placesType,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                ),
+              Text(
+                placesType,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
               ),
-              Expanded(
-                flex: 1,
-                child: Icon(
-                  Icons.favorite_border_outlined,
-                  color: Colors.white,
-                ),
+              const Icon(
+                Icons.favorite_border_outlined,
+                color: Colors.white,
               ),
             ],
           ),
@@ -104,25 +99,25 @@ class _PlaceContent extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
       ),
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       alignment: Alignment.topCenter,
       child: RichText(
         overflow: TextOverflow.ellipsis,
         text: TextSpan(
           text: (placesName),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
           children: [
             TextSpan(
               text: ('\n' + placeDetails),
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+              style: const TextStyle(color: Colors.grey, fontSize: 14),
             ),
           ],
         ),
