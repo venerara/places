@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
+import 'package:places/ui/screen/res/colors.dart';
 import 'package:places/ui/screen/sight_favorites_card.dart';
 import 'package:places/ui/screen/components/bottomnavigationbar_custom.dart';
 import 'package:places/ui/screen/components/tapbar_custom.dart';
@@ -13,12 +14,8 @@ class VisitingScreenState extends State {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.white,
-          elevation: 0,
           title: const Text(
             AppStrings.titleAppBar1,
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
           ),
         ),
         body: Column(
@@ -34,7 +31,7 @@ class VisitingScreenState extends State {
                     child: SightFavotitesCard(
                       placeImage: AppStrings.placeImage1,
                       placesName: AppStrings.placeName1,
-                      colorName: Colors.green,
+                      colorName: colorGreen,
                       textAction: AppStrings.textAction1,
                       icon: Icons.calendar_today_outlined,
                     ),
@@ -45,7 +42,7 @@ class VisitingScreenState extends State {
                     child: SightFavotitesCard(
                       placeImage: AppStrings.placeImage2,
                       placesName: AppStrings.placeName2,
-                      colorName: Colors.grey,
+                      colorName: colorGrey,
                       textAction: AppStrings.textAction2,
                       icon: Icons.share,
                     ),

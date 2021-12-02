@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/appstrings.dart';
+import 'package:places/ui/screen/res/colors.dart';
 
 //Карточка для экрана Избранное в visiting_screen.dart
 class SightFavotitesCard extends StatelessWidget {
@@ -58,7 +59,7 @@ class _PlaceImage extends StatelessWidget {
       alignment: Alignment.topLeft,
       children: [
         const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+          valueColor: AlwaysStoppedAnimation<Color>(colorWhiteGrey),
           strokeWidth: 0.7,
         ),
         Container(
@@ -81,22 +82,19 @@ class _PlaceImage extends StatelessWidget {
               Expanded(
                 child: Text(
                   AppStrings.placeType,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               Icon(
                 icon,
-                color: Colors.white,
+                color: colorWhite,
               ),
               SizedBox(
                 width: 20,
               ),
               Icon(
                 Icons.close,
-                color: Colors.white,
+                color: colorWhite,
               ),
             ],
           ),
@@ -124,7 +122,7 @@ class _PlaceContent extends StatelessWidget {
       height: 150,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Theme.of(context).backgroundColor,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -135,10 +133,7 @@ class _PlaceContent extends StatelessWidget {
         child: RichText(
           text: TextSpan(
             text: (placeName),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+            style: Theme.of(context).textTheme.headline1,
             children: [
               TextSpan(
                 text: textAction,
@@ -146,7 +141,7 @@ class _PlaceContent extends StatelessWidget {
               ),
               TextSpan(
                 text: (AppStrings.placeMode),
-                style: TextStyle(color: Colors.grey, fontSize: 14),
+                style: Theme.of(context).textTheme.headline3,
               ),
             ],
           ),

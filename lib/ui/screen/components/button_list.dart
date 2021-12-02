@@ -9,15 +9,15 @@ class ButtonList extends StatelessWidget {
     return Container(
       height: 32,
       width: 32,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColorLight,
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: IconButton(
         padding: const EdgeInsets.all(0),
         onPressed: () {},
         iconSize: (22.0),
-        color: Colors.black,
+        color: Theme.of(context).primaryColorDark,
         icon: const Icon(Icons.arrow_back_ios_new_rounded),
       ),
     );

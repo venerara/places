@@ -12,12 +12,8 @@ class EmptyVisitingScreenState extends State {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.white,
-          elevation: 0,
           title: const Text(
             AppStrings.titleAppBar1,
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 26),
           ),
         ),
         body: Column(
@@ -72,16 +68,15 @@ class _SightEmptyFavoritesCard extends StatelessWidget {
           size: 60.0,
         ),
         const SizedBox(height: 25),
-        const Text(
+        Text(
           AppStrings.placeEmpty,
-          style: TextStyle(
-              color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20),
+          style: Theme.of(context).textTheme.headline4,
         ),
         const SizedBox(height: 15),
         Text(
           textAction,
           textAlign: TextAlign.center,
-          style: const TextStyle(color: Colors.grey, fontSize: 16),
+          style: Theme.of(context).textTheme.headline5,
         ),
       ],
     );

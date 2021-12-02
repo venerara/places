@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/res/colors.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
@@ -47,7 +48,7 @@ class _PlaceImage extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+          valueColor: AlwaysStoppedAnimation<Color>(colorWhiteGrey),
           strokeWidth: 0.7,
         ),
         Container(
@@ -70,14 +71,11 @@ class _PlaceImage extends StatelessWidget {
             children: [
               Text(
                 placesType,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
+                style: Theme.of(context).textTheme.headline6,
               ),
               const Icon(
                 Icons.favorite_border_outlined,
-                color: Colors.white,
+                color: colorWhite,
               ),
             ],
           ),
@@ -98,26 +96,23 @@ class _PlaceContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Theme.of(context).backgroundColor,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
       ),
       padding: const EdgeInsets.all(20.0),
-      alignment: Alignment.topCenter,
+      alignment: Alignment.topLeft,
       child: RichText(
         overflow: TextOverflow.ellipsis,
         text: TextSpan(
           text: (placesName),
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
+          style: Theme.of(context).textTheme.headline1,
           children: [
             TextSpan(
               text: ('\n' + placeDetails),
-              style: const TextStyle(color: Colors.grey, fontSize: 14),
+              style: Theme.of(context).textTheme.headline2,
             ),
           ],
         ),
