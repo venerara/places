@@ -34,7 +34,7 @@ class _SightListScreenState extends State<SightListScreen> {
         ),
       ),
       bottomNavigationBar: const CustomBottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: 5,
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/sight_visiting_screen.dart';
+import 'package:places/ui/screen/res/themes.dart';
+import 'package:places/ui/screen/sight_empty_screen.dart';
 
 void main() {
   runApp(const App());
@@ -10,10 +11,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkMode = false;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo App',
-      theme: ThemeData(),
+      theme: isDarkMode ? darkTheme : lightTheme,
       home: const VisitingScreen(),
     );
   }
@@ -28,6 +30,6 @@ class VisitingScreen extends StatefulWidget {
   State<StatefulWidget> createState() {
     // ignore: todo
     // TODO: implement createState
-    return VisitingScreenState();
+    return EmptyVisitingScreenState();
   }
 }

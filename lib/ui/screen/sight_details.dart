@@ -5,6 +5,7 @@ import 'package:places/ui/res/appstrings.dart';
 import 'package:places/ui/screen/components/button_text.dart';
 import 'package:places/ui/screen/components/button_navigationbar.dart';
 import 'package:places/ui/screen/components/button_list.dart';
+import 'package:places/ui/screen/res/colors.dart';
 
 class SightDetails extends StatelessWidget {
   const SightDetails({Key? key}) : super(key: key);
@@ -26,22 +27,21 @@ class SightDetails extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 30),
-                  const Text(
+                  Text(
                     AppStrings.placeName,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         AppStrings.placeType,
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       const SizedBox(width: 20),
-                      const Text(
+                      Text(
                         AppStrings.placeMode,
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ],
                   ),
@@ -73,7 +73,7 @@ class _PlaceImage extends StatelessWidget {
     return Stack(
       children: [
         const CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+          valueColor: AlwaysStoppedAnimation<Color>(colorWhiteGrey),
           strokeWidth: 0.7,
         ),
         Container(
@@ -99,13 +99,13 @@ class _BottomNavigationBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const ButtonNavigationBar(
+        ButtonNavigationBar(
             icon: Icons.calendar_today_rounded,
-            iconColor: Colors.grey,
+            iconColor: Theme.of(context).primaryColorDark,
             title: AppStrings.titlePlanbutton),
-        const ButtonNavigationBar(
+        ButtonNavigationBar(
             icon: Icons.favorite_border,
-            iconColor: Colors.black,
+            iconColor: Theme.of(context).primaryColorDark,
             title: AppStrings.titleFavoritebutton),
       ],
     );
